@@ -15,3 +15,8 @@ def clear():
 def timecurrency():
     time_now = timetoday('%d-%m-%y %H:%M:%S')
     return time_now
+
+
+def filter_input(text:str):
+    return text.lower().strip().replace(' ', '')
+

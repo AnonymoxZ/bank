@@ -1,14 +1,15 @@
 # screens terminal
+from modules_system import tools
+
+
 
 def screen_register():
     header_title = 'WELCOME TO MATTRESS $'
-    print(f'''
-{(len(header_title)+len(header_title))*"="}
-         {header_title}
-{(len(header_title)+len(header_title))*"="}
-\t[ 1 ] Register Account
-\t[ 2 ] Login Account
-\t[ 3 ] Exit
+    BR = (len(header_title)+len(header_title))*"="
+    print(f'''{BR}\n\t{header_title}\n{BR}
+    [ 1 ] Register Account
+    [ 2 ] Login Account
+    [ 0 ] Exit
 ''')
 
 
@@ -17,7 +18,14 @@ def screen_client(name):
     BR = (len(name_client)+len(name_client))*"="
     print(f'''{BR}\n\t{name_client}\n{BR}
     ( 1 ) Deposit
-    ( 2 ) Withdrawal
-    ( 3 ) Transfer
-''')
+    ( 2 ) Drop money
+    ( 3 ) Transfer 
+    ( 0 ) Exit ''')
 
+
+def end_session():
+    tools.clear()
+    BR = 30*"="
+    print(BR)
+    print('Thanks for used the Mattres!')
+    print(BR)
