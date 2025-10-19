@@ -20,7 +20,6 @@ def register(name, cpf, password):
             cursor.execute('INSERT INTO users(name, cpf, password) VALUES (?,?,?)',
             (val.valname(name), cpf, password))
             print("Register with sucess!\n")
-            print(cursor.execute("SELECT * FROM users;").fetchall())
             connect.commit()
         except db.IntegrityError:
             print(f'{tools.br}CPF has been register{tools.br}')
