@@ -20,7 +20,8 @@ def screen_client(name):
     ( 1 ) Deposit
     ( 2 ) Drop money
     ( 3 ) Transfer 
-    ( 0 ) Exit ''')
+    ( 0 ) Exit 
+''')
 
 
 def end_session():
