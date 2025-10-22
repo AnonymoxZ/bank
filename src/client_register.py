@@ -6,7 +6,12 @@ from modules_system import validators as val, tools
 
 def register(name, cpf, password):
     if (not val.valcpf(cpf)) and (not val.valpassword(password)):
-        print('Invalid data! Check your CPF or make sure your password has 8 characters.')
+        tools.clear()
+        msg_error = 'Invalid data! Check your CPF or make sure your password has 8 characters.'
+        br = f"\n{'-'*len(msg_error)}\n"
+        print(f'{br}{msg_error}{br}')
+        tools.wait(0)
+        return
     with db.connect(tools.pathdb()) as connect:
         cursor = connect.cursor()
         cursor.execute('''
@@ -14,13 +19,17 @@ def register(name, cpf, password):
             id INTEGER PRIMARY KEY,
             name TEXT,
             cpf TEXT UNIQUE,
-            password TEXT);
+            password TEXT
+            balance REAL);
         ''')
         try:
             cursor.execute('INSERT INTO users(name, cpf, password) VALUES (?,?,?)',
             (val.valname(name), cpf, password))
-            print("Register with sucess!\n")
+            print(f"{tools.br}Register with sucess!{tools.br}")
+            tools.wait(0)
             connect.commit()
         except db.IntegrityError:
-            print(f'{tools.br}CPF has been register{tools.br}')
+            tools.clear()
+            print(f'{tools.br}CPF has been register.\nTry other CPF or create an new account.{tools.br}')
+            tools.wait()
 

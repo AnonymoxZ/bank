@@ -1,11 +1,12 @@
 # utils tools
 from os import system
 import sys
-from time import strftime as timetoday
+from time import strftime as timetoday, sleep
 from pathlib import Path
 
 
-br = f'\n{25*"-"}\n'
+
+br = f'\n{45*"-"}\n' # this a barra 
 
 def clear():
     OS = sys.platform
@@ -32,4 +33,11 @@ def pathdb():
     path_dir.mkdir(exist_ok=True, parents=True)
     path_db = path_dir / 'base.db'
     return path_db
+
+
+def wait(sec=0):
+    if sec != 0:
+        sleep(sec)
+    elif sec == 0:
+        system('pause')
 

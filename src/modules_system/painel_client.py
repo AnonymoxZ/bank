@@ -13,15 +13,21 @@ def screen_register():
 ''')
 
 
-def screen_client(name):
-    name_client = f'WELCOME {str(name).capitalize()}!'
-    BR = (len(name_client)+len(name_client))*"="
-    print(f'''{BR}\n\t{name_client}\n{BR}
-    ( 1 ) Deposit
-    ( 2 ) Drop money
-    ( 3 ) Transfer 
-    ( 0 ) Exit 
-''')
+def screen_client(login_true, name):
+    '''
+    :login_true [arg] bool;
+    :name [arg] string;
+    :Return interface if logged;
+    '''
+    if login_true:
+        name_client = f'WELCOME {str(name).capitalize()}!'
+        BR = (len(name_client)+len(name_client))*"="
+        print(f'''{BR}\n\t{name_client}\n{BR}
+        ( 1 ) Deposit
+        ( 2 ) Drop money
+        ( 3 ) Transfer 
+        ( 0 ) Exit account 
+    ''')
 
 
 def end_session():
